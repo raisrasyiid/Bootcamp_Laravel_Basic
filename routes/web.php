@@ -20,3 +20,9 @@ Route::get('/', function () {
         'buah' => ['apel', 'melon', 'anggur', 'jeruk', 'leci', 'melon']
     ]);
 });
+
+Route::get('/about', function () {
+    return view('about', [
+        'data' => ['raisrasyiid', 'yogyakarta', 'email@rais.com'],
+    ]);
+});
