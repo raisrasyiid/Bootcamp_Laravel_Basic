@@ -1,0 +1,7 @@
+!!! blade templating !!!
+
+1. @yield() : untuk memanggil data dari file viewnya. bungkus dengan section kemudian dipanggil menggunakan yield di view template.
+
+2. @section() : untuk membungkus content yang kemudian dipanggil ke view template.
+
+3. extends() : untuk memanggil view template di file childnya. 
