@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nis', 10)->required();
             $table->string('fullname', 100)->required();
+            $table->enum('gender', ['L', 'P'])->required();
             $table->timestamps();
         });
     }
