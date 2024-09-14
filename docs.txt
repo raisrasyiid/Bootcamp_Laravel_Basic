@@ -5,3 +5,6 @@
 2. @section() : untuk membungkus content yang kemudian dipanggil ke view template.
 
 3. extends() : untuk memanggil view template di file childnya. 
+
+!!! Artisan !!!
+1. php artisan make: migration create_students_table (buat prural/ jamak)
