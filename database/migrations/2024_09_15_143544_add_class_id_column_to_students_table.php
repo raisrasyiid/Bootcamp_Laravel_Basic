@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('students', function (Blueprint $table) {
-            $table->id();
-            $table->string('nis', 10)->required();
-            $table->string('fullname', 100)->required();
-            $table->enum('gender', ['L', 'P'])->required();
-            $table->timestamps();
+        Schema::table('students', function (Blueprint $table) {
+            $table->unsignedBigInteger('class_id')->after('id')->required();
+
+            $table->foreign('class_id')->references('id')->on('class')->onDelete('restrict');
         });
     }
 
@@ -29,6 +27,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('students');
+        Schema::table('students', function (Blueprint $table) {
+            $table->dropForeign(['class_id']);
+            $table->dropColumn('class_id');
+        });
     }
 };
