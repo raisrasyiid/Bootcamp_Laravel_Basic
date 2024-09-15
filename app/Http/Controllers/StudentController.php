@@ -8,6 +8,7 @@ class StudentController extends Controller
 {
     public function index()
     {
-        dd('test');
+        $nama = 'budi';
+        return view('students', ['nama' => $nama]);
     }
 }
