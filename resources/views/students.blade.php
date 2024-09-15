@@ -7,15 +7,19 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
+                    <th>NIM</th>
                     <th>Namaku</th>
+                    <th>Jenis Kelamin</th>
                 </tr>
             </thead>
             <tbody>
-            
-                <tr>
-                    <td>{{$nama}}</td>
-                </tr>
-               
+                @foreach ($students as $data)
+                    <tr>
+                        <td>{{$data->nis}}</td>
+                        <td>{{$data->fullname}}</td>
+                        <td>{{$data->gender}}</td>
+                    </tr>
+                    @endforeach
             </tbody>
         </table>
       </div>
