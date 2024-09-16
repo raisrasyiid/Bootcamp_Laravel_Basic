@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container-fluid">
-        <h1>Data Mahasiswa :  </h1>
+        <h1>Data Mahasiswa</h1>
         <table class="table table-bordered">
             <thead>
                 <tr>
