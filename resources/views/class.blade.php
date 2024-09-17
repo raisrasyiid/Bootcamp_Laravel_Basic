@@ -1,26 +1,25 @@
 @extends('layout.template')
-@section('title', 'Students')
+@section('title', 'Class')
 
 @section('content')
 <div class="container-fluid">
-        <h1>Data Mahasiswa</h1>
+        <h1> Data Class </h1>
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>NIM</th>
-                    <th>Namaku</th>
-                    <th>Jenis Kelamin</th>
+                    <th>No</th>
+                    <th>Class</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($students as $data)
+                @foreach ($class as $data)
                     <tr>
-                        <td>{{$data->nis}}</td>
-                        <td>{{$data->fullname}}</td>
-                        <td>{{$data->gender}}</td>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$data->name}}</td>
                     </tr>
                     @endforeach
             </tbody>
         </table>
+        
       </div>
 @endsection
