@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\ClassRoom;
 use Carbon\Carbon;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\ClassRoom;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ClassSeeder extends Seeder
 {
@@ -16,6 +17,10 @@ class ClassSeeder extends Seeder
      */
     public function run()
     {
+        Schema::disableForeignKeyConstraints();
+        ClassRoom::truncate();
+        Schema::enableForeignKeyConstraints();
+
         ClassRoom::insert([
             'name' => 'Rais',
             'created_at' => Carbon::now(),
