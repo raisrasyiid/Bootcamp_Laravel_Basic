@@ -17,6 +17,8 @@ class ClassSeeder extends Seeder
      */
     public function run()
     {
+
+        //cara truncate data yang terhubung dengan foreign key dari tabel lain.
         Schema::disableForeignKeyConstraints();
         ClassRoom::truncate();
         Schema::enableForeignKeyConstraints();

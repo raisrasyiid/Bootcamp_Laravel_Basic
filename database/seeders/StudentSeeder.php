@@ -18,7 +18,7 @@ class StudentSeeder extends Seeder
      */
     public function run()
     {
-
+        //cara truncate data yang terhubung dengan foreign key dari tabel lain.
         Schema::disableForeignKeyConstraints();
         Student::truncate();
         Schema::enableForeignKeyConstraints();
