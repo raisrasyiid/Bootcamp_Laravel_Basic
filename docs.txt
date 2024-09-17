@@ -10,3 +10,9 @@
 1. php artisan make: migration create_students_table (buat plural/ jamak)
 
 2. nama file Model harus kapital diawal dan berkalimat singular (tunggal).
+
+!! DATABASE !!
+1. Seeders :  untuk mengisi data secara bersamaan. 
+2. DatabaseSeeders : untuk memanggil Seeder secara otomatis.
+3. Migration : migrasi table.
+4. Factories : untuk mengisi data RANDOM secara otomatis (Faker). 
