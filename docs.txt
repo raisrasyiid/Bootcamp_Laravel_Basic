@@ -16,3 +16,6 @@
 2. DatabaseSeeders : untuk memanggil Seeder secara otomatis.
 3. Migration : migrasi table.
 4. Factories : untuk mengisi data RANDOM secara otomatis (Faker). 
+
+student -> class = many to one
+class -> student = one to many
