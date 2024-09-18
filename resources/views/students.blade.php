@@ -20,7 +20,8 @@
                         <td>{{$loop->iteration}}</td>
                         <td>{{$data->nis}}</td>
                         <td>{{$data->fullname}}</td>
-                        <td>{{$data->class_id}}</td>
+                        {{-- class dibawah dipangil dari model --}}
+                        <td>{{$data->class['name']}}</td> 
                         <td>{{$data->gender}}</td>
                     </tr>
                     @endforeach

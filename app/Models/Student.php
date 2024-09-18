@@ -16,4 +16,9 @@ class Student extends Model
     // protected $primaryKey = 'id';
 
     protected $fillable = ['fullname', 'gender', 'nis', 'class_id'];
+
+    public function class()
+    {
+        return $this->belongsTo(ClassRoom::class);
+    }
 }
