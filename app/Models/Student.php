@@ -14,4 +14,6 @@ class Student extends Model
 
     // !!!jika nama kolom key 'id', maka syntax dibawah ini tidak perlu dituliskan. !!!
     // protected $primaryKey = 'id';
+
+    protected $fillable = ['fullname', 'gender', 'nis', 'class_id'];
 }
