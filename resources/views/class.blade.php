@@ -9,14 +9,18 @@
                 <tr>
                     <th>No</th>
                     <th>Class</th>
+                    <th>Nama</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($class as $data)
-                    <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td>{{$data->name}}</td>
-                    </tr>
+                @foreach($data->student as $student)
+                <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$data->name}}</td>
+                    <td>{{$student['fullname']}}</td>
+                </tr>
+                @endforeach
                     @endforeach
             </tbody>
         </table>
