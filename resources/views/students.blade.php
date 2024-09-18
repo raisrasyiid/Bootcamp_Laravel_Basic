@@ -20,7 +20,6 @@
                         <td>{{$loop->iteration}}</td>
                         <td>{{$data->nis}}</td>
                         <td>{{$data->fullname}}</td>
-                        {{-- class dibawah dipangil dari model student --}}
                         <td>{{$data->class['name']}}</td> 
                         <td>{{$data->gender}}</td>
                     </tr>
