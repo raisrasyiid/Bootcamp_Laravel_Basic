@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
     public function index()
     {
-        $data = Student::all(); //eloquent orm
+        //eager loading
+        $data = Student::with('class')->get();
         return view('students', ['students' => $data]);
     }
 }
