@@ -10,7 +10,7 @@ class ClassController extends Controller
     public function index()
     {
         //lazy load 
-        $data = ClassRoom::all(); // request data hanya dari 1 tabel saja, tabel relasinya tidak di query 
+        // $data = ClassRoom::all(); // request data hanya dari 1 tabel saja, tabel relasinya tidak di query 
         //select * from class
 
         //eager load
