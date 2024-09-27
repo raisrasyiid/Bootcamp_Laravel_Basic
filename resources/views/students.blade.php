@@ -12,6 +12,7 @@
                     <th>Namaku</th>
                     <th>Kelas</th>
                     <th>Jenis Kelamin</th>
+                    <th>Extrakurikuler</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +23,11 @@
                         <td>{{$data->fullname}}</td>
                         <td>{{$data->class['name']}}</td> 
                         <td>{{$data->gender}}</td>
+                        <td>
+                            @foreach ($data->extras as $item)
+                                - {{$item->name}} <br>
+                            @endforeach
+                        </td>
                     </tr>
                     @endforeach
             </tbody>
