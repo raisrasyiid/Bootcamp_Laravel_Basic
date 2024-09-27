@@ -11,7 +11,7 @@ class StudentController extends Controller
     public function index()
     {
         //eager loading
-        $data = Student::with('class')->get();
+        $data = Student::with(['class', 'extras'])->get();
         return view('students', ['students' => $data]);
     }
 }
