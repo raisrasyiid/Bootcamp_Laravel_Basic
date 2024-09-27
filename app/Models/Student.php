@@ -17,9 +17,13 @@ class Student extends Model
 
     protected $fillable = ['fullname', 'gender', 'nis', 'class_id'];
 
-    //lazy loading
     public function class()
     {
         return $this->belongsTo(ClassRoom::class);
+    }
+
+    public function extras()
+    {
+        return $this->belongsToMany(Extra::class, 'student_extra', 'students_id', 'extra_id');
     }
 }
