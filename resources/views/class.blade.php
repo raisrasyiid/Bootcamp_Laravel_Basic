@@ -9,7 +9,8 @@
                 <tr>
                     <th>No</th>
                     <th>Class</th>
-                    <th>Nama</th>
+                    <th>Nama siswa</th>
+                    <th>Wali Kelas</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,6 +20,7 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$data->name}}</td>
                     <td>{{$student['fullname']}}</td>
+                    <td>{{$data->homeroomTeacher->name}}</td>
                 </tr>
                 @endforeach
                     @endforeach
