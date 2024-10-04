@@ -13,6 +13,7 @@
                     <th>Kelas</th>
                     <th>Jenis Kelamin</th>
                     <th>Extrakurikuler</th>
+                    <th>Wali Kelas</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +29,7 @@
                                 - {{$item->name}} <br>
                             @endforeach
                         </td>
+                        <td>{{$data->class->homeroomTeacher->name}}</td>
                     </tr>
                     @endforeach
             </tbody>

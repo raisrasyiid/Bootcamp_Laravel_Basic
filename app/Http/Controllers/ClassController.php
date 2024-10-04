@@ -14,7 +14,7 @@ class ClassController extends Controller
         //select * from class
 
         //eager load
-        $data = ClassRoom::with('student')->get(); // request data bisa dari beberapa tabel 
+        $data = ClassRoom::with('student', 'homeroomTeacher')->get(); // request data bisa dari beberapa tabel 
         //select * from class
         //SELECT * FROM students WHERE class_id IN ('1a', '1b', '1c', '1d');
         return view('class', ['class' => $data]);
