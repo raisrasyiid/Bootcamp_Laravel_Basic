@@ -27,6 +27,9 @@
                   <li class="nav-item">
                     <a class="nav-link" href="/extra">Extrakurikuler</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/teacher">Teacher</a>
+                  </li>
               </div>
             </div>
           </nav>

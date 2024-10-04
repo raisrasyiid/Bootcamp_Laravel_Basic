@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\ExtraController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 use App\Models\Extra;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +29,4 @@ Route::get('/', function () {
 Route::get('/students', [StudentController::class, 'index']);
 Route::get('/class', [ClassController::class, 'index']);
 Route::get('/extra', [ExtraController::class, 'index']);
+Route::get('/teacher', [TeacherController::class, 'index']);
