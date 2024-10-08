@@ -13,6 +13,6 @@ class Extra extends Model
 
     public function students()
     {
-        return $this->belongsToMany(Student::class, 'student_extra', 'extra_id', 'students_id');
+        return $this->belongsToMany(Student::class, 'student_extra', 'extra_id', 'student_id');
     }
 }
