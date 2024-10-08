@@ -22,11 +22,13 @@ Route::get('/', function () {
     return view('home', [
         'name' => 'rais',
         'role' => 'admin',
-        'buah' => ['apel', 'melon', 'anggur', 'jeruk', 'leci', 'melon']
     ]);
 });
 
 Route::get('/students', [StudentController::class, 'index']);
+Route::get('/student/{id}', [StudentController::class, 'show']);
+
+
 Route::get('/class', [ClassController::class, 'index']);
 Route::get('/extra', [ExtraController::class, 'index']);
 Route::get('/teacher', [TeacherController::class, 'index']);
