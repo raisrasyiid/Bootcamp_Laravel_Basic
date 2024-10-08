@@ -15,15 +15,13 @@ class Student extends Model
     // !!!jika nama kolom key 'id', maka syntax dibawah ini tidak perlu dituliskan. !!!
     // protected $primaryKey = 'id';
 
-    protected $fillable = ['fullname', 'gender', 'nis', 'class_id'];
-
     public function class()
     {
         return $this->belongsTo(ClassRoom::class);
     }
 
-    public function extras()
+    public function extra()
     {
-        return $this->belongsToMany(Extra::class, 'student_extra', 'students_id', 'extra_id');
+        return $this->belongsToMany(Extra::class, 'student_extra', 'student_id', 'extra_id');
     }
 }
