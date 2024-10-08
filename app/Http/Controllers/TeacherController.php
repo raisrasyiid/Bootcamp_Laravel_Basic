@@ -11,6 +11,13 @@ class TeacherController extends Controller
     {
         //eager loading
         $teacher = Teacher::all();
-        return view('teacher', ['teacher' => $teacher]);
+        return view('teacher.teacher', ['teacher' => $teacher]);
+    }
+
+    public function show($id)
+    {
+        $teacher = Teacher::with(['class.students'])
+            ->findOrFail($id);
+        return view('teacher.teacher_detail', ['teacher' => $teacher]);
     }
 }
