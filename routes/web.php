@@ -30,5 +30,11 @@ Route::get('/student/{id}', [StudentController::class, 'show']);
 
 
 Route::get('/class', [ClassController::class, 'index']);
+Route::get('/class_detail/{id}', [ClassController::class, 'show']);
+
+
 Route::get('/extra', [ExtraController::class, 'index']);
+Route::get('/extra_detail/{id}', [ExtraController::class, 'show']);
+
 Route::get('/teacher', [TeacherController::class, 'index']);
+Route::get('/teacher_detail/{id}', [TeacherController::class, 'show']);
