@@ -32,12 +32,8 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $student = new Student;
-        // $student->fullname = $request->fullname;
-        // $student->gender = $request->gender;
-        // $student->nis = $request->nis;
-        // $student->class_id = $request->class_id;
-        // $student->save();
 
         $student->create($request->all());
+        return redirect('/students');
     }
 }
