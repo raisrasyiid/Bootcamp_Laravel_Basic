@@ -4,6 +4,9 @@
 @section('content')
 <div class="container-fluid">
     <h1>Data Extrakurikuler</h1>
+    <div class="my-3">
+        <a href="#" class="btn btn-primary btn-sm">Add Data</a>
+    </div>
     <table class="table table-bordered">
         <thead>
             <tr>

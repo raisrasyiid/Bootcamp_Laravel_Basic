@@ -9,6 +9,8 @@ class Student extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['fullname', 'gender', 'nis', 'class_id'];
+
     // !!!jika nama table ini dalam bentuk plural, maka syntax dibawah ini tidak perlu dituliskan. !!!
     // protected $table = 'students';
 
