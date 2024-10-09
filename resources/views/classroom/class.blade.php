@@ -4,6 +4,9 @@
 @section('content')
 <div class="container-fluid">
     <h1>Data Class</h1>
+    <div class="my-3">
+        <a href="#" class="btn btn-primary btn-sm">Add Data</a>
+    </div>
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead>
