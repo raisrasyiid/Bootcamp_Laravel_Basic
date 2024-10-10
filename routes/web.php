@@ -33,6 +33,8 @@ Route::post('/student', [StudentController::class, 'store']);
 
 Route::get('/class', [ClassController::class, 'index']);
 Route::get('/class_detail/{id}', [ClassController::class, 'show']);
+Route::get('/class_add', [ClassController::class, 'create']);
+Route::post('/class', [ClassController::class, 'store']);
 
 
 
