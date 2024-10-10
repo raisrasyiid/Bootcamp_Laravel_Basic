@@ -9,6 +9,7 @@
             <thead class="text-center">
                 <tr>
                     <th class="text-center">No</th>
+                    <th class="text-center">NIS</th>
                     <th class="text-center">Nama</th>
                 </tr>
             </thead>
@@ -16,6 +17,7 @@
                 @foreach ($class->students as $item)
                 <tr>
                     <td>{{$loop->iteration}}</td>
+                    <td>{{$item->nis}}</td>
                     <td>{{$item->fullname}}</td>
                 </tr>
                 @endforeach
