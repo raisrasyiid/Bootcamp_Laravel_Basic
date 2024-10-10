@@ -20,4 +20,16 @@ class TeacherController extends Controller
             ->findOrFail($id);
         return view('teacher.teacher_detail', ['teacher' => $teacher]);
     }
+
+    public function create()
+    {
+        return view('teacher.teacher_add');
+    }
+
+    public function store(Request $request)
+    {
+        $teacher = new Teacher;
+        $teacher->create($request->all());
+        return redirect('/teacher');
+    }
 }
