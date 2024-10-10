@@ -40,6 +40,8 @@ Route::post('/class', [ClassController::class, 'store']);
 
 Route::get('/extra', [ExtraController::class, 'index']);
 Route::get('/extra_detail/{id}', [ExtraController::class, 'show']);
+Route::get('/extra_add', [ExtraController::class, 'create']);
+Route::post('/extra', [ExtraController::class, 'store']);
 
 Route::get('/teacher', [TeacherController::class, 'index']);
 Route::get('/teacher_detail/{id}', [TeacherController::class, 'show']);

@@ -11,6 +11,8 @@ class Extra extends Model
 
     protected $table = 'extras';
 
+    protected $fillable = ['name'];
+
     public function students()
     {
         return $this->belongsToMany(Student::class, 'student_extra', 'extra_id', 'student_id');

@@ -19,4 +19,16 @@ class ExtraController extends Controller
             ->findOrFail($id);
         return view('extracurricular.extra_detail', ['extra' => $extra]);
     }
+
+    public function create()
+    {
+        return view('extracurricular.extra_add');
+    }
+
+    public function store(Request $request)
+    {
+        $extra = new Extra;
+        $extra->create($request->all());
+        return redirect('/extra');
+    }
 }
