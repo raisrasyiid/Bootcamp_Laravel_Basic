@@ -5,8 +5,9 @@
 <div class="container-fluid">
     <h1>Data Teacher</h1>
     <div class="my-3">
-        <a href="#" class="btn btn-primary btn-sm">Add Data</a>
+        <a href="/teacher_add" class="btn btn-primary btn-sm">Add Data</a>
     </div>
+
     <table class="table table-bordered">
         <thead>
             <tr>
