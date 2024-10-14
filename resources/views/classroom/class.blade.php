@@ -23,7 +23,7 @@
                     <td>{{$data->name}}</td>
                     <td class="text-center">
                         <a href="/class_detail/{{$data->id}}" class="btn btn-primary btn-sm">Detail</a>
-                        <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="/class_edit/{{$data->id}}" class="btn btn-warning btn-sm">Edit</a>
                         <a href="#" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
