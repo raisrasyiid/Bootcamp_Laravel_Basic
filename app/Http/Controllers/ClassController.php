@@ -33,4 +33,19 @@ class ClassController extends Controller
         $class->create($request->all());
         return redirect('/class');
     }
+
+    public function edit(Request $request, $id)
+    {
+        $class = ClassRoom::with('homeroomTeacher')->findOrFail($id);
+        $allClasses = ClassRoom::with('homeroomTeacher')->get();
+        $allTeachers = Teacher::all();
+        return view('classroom.class_edit', ['allClasses' => $allClasses, 'class' => $class,  'allTeachers' => $allTeachers]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $class = ClassRoom::findOrFail($id);
+        $class->update($request->all());
+        return redirect('/class');
+    }
 }
