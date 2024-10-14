@@ -37,6 +37,8 @@ Route::get('/class', [ClassController::class, 'index']);
 Route::get('/class_detail/{id}', [ClassController::class, 'show']);
 Route::get('/class_add', [ClassController::class, 'create']);
 Route::post('/class', [ClassController::class, 'store']);
+Route::get('/class_edit/{id}', [ClassController::class, 'edit']);
+Route::put('/class/{id}', [ClassController::class, 'update']);
 
 
 
@@ -44,6 +46,8 @@ Route::get('/extra', [ExtraController::class, 'index']);
 Route::get('/extra_detail/{id}', [ExtraController::class, 'show']);
 Route::get('/extra_add', [ExtraController::class, 'create']);
 Route::post('/extra', [ExtraController::class, 'store']);
+Route::get('/extra_edit/{id}', [ExtraController::class, 'edit']);
+Route::put('/extra/{id}', [ExtraController::class, 'update']);
 
 Route::get('/teacher', [TeacherController::class, 'index']);
 Route::get('/teacher_detail/{id}', [TeacherController::class, 'show']);
