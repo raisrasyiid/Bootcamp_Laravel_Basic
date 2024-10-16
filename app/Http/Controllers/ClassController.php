@@ -31,7 +31,7 @@ class ClassController extends Controller
     {
         $class = new ClassRoom;
         $class->create($request->all());
-        return redirect('/class');
+        return redirect('/class')->with('success', 'Class added successfully');
     }
 
     public function edit(Request $request, $id)
@@ -46,6 +46,6 @@ class ClassController extends Controller
     {
         $class = ClassRoom::findOrFail($id);
         $class->update($request->all());
-        return redirect('/class');
+        return redirect('/class')->with('success', 'Class updated successfully');
     }
 }

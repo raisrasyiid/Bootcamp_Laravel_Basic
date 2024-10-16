@@ -4,6 +4,11 @@
 @section('content')
 <div class="container-fluid">
     <h1>Data Class</h1>
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <div class="my-3">
         <a href="/class_add" class="btn btn-primary btn-sm">Add Data</a>
     </div>
