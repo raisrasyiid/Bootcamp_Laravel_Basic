@@ -7,7 +7,7 @@
        <div class="mt-5 col-6 m-auto">
         <form action="/student/{{$student->id}}" method="POST">
             @csrf
-            @method('PUT');
+            @method('PUT')
             <div class="control-group mb-3">
                 <label for="name">name</label>
                 <input type="text" name="fullname" value="{{$student->fullname}}" class="form-control" id="name" placeholder="masukan nama anda..." required>
