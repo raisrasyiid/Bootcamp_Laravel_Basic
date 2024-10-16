@@ -30,6 +30,19 @@ class TeacherController extends Controller
     {
         $teacher = new Teacher;
         $teacher->create($request->all());
-        return redirect('/teacher');
+        return redirect('/teacher')->with('success', 'Teacher added successfully');
+    }
+
+    public function edit(Request $request, $id)
+    {
+        $teacher = Teacher::findOrFail($id);
+        return view('teacher.teacher_edit', ['teacher' => $teacher]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $teacher = Teacher::findOrFail($id);
+        $teacher->update($request->all());
+        return redirect('/teacher')->with('success', 'Teacher update successfully');
     }
 }
