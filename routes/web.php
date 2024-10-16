@@ -4,7 +4,6 @@ use App\Http\Controllers\ClassController;
 use App\Http\Controllers\ExtraController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
-use App\Models\Extra;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,3 +52,5 @@ Route::get('/teacher', [TeacherController::class, 'index']);
 Route::get('/teacher_detail/{id}', [TeacherController::class, 'show']);
 Route::get('/teacher_add', [TeacherController::class, 'create']);
 Route::post('/teacher', [TeacherController::class, 'store']);
+Route::get('/teacher_edit/{id}', [TeacherController::class, 'edit']);
+Route::put('/teacher/{id}', [TeacherController::class, 'update']);

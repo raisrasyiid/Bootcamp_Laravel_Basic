@@ -4,6 +4,11 @@
 @section('content')
 <div class="container-fluid">
         <h1>Form edit data student</h1>
+        @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
        <div class="mt-5 col-6 m-auto">
         <form action="/student/{{$student->id}}" method="POST">
             @csrf
