@@ -34,7 +34,7 @@ class StudentController extends Controller
         $student = new Student;
 
         $student->create($request->all());
-        return redirect('/students');
+        return redirect('/students')->with('success', 'Student added successfully');
     }
 
     public function edit(Request $request, $id)
@@ -48,6 +48,6 @@ class StudentController extends Controller
     {
         $student = Student::findOrFail($id);
         $student->update($request->all());
-        return redirect('/students');
+        return redirect('/students')->with('success', 'Student update successfully');;
     }
 }
