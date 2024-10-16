@@ -31,4 +31,17 @@ class ExtraController extends Controller
         $extra->create($request->all());
         return redirect('/extra');
     }
+
+    public function edit(Request $request, $id)
+    {
+        $extra = Extra::findOrFail($id);
+        return view('extracurricular.extra_edit', ['extra' => $extra]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $extra = Extra::findOrFail($id);
+        $extra->update($request->all());
+        return redirect('/extra')->with('success', 'data extra berhasil di update');
+    }
 }
