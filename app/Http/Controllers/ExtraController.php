@@ -29,7 +29,7 @@ class ExtraController extends Controller
     {
         $extra = new Extra;
         $extra->create($request->all());
-        return redirect('/extra');
+        return redirect('/extra')->with('success', 'Extra added successfully');
     }
 
     public function edit(Request $request, $id)
