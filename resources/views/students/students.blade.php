@@ -9,8 +9,9 @@
             {{ Session::get('message') }}
         </div>
         @endif
-        <div class="my-3">
+        <div class="my-3 d-flex justify-content-between">
             <a href="/student_add" class="btn btn-primary btn-sm">Add Data</a>
+            <a href="/students_deleted" class="btn btn-info btn-sm">Show deleted data</a>
         </div>
         <table class="table table-bordered">
             <thead class="text-center">

@@ -13,7 +13,7 @@ class StudentController extends Controller
     public function index()
     {
         //eager loading
-        $data = Student::with('extra')->get();
+        $data = Student::get();
         return view('students.students', ['students' => $data]);
     }
 
@@ -73,6 +73,22 @@ class StudentController extends Controller
         if ($student) {
             Session::flash('status', 'success');
             Session::flash('message', 'delete student success!');
+        }
+        return redirect('/students');
+    }
+
+    public function deletedStudent()
+    {
+        $data = Student::onlyTrashed()->get();
+        return view('students.students_deleted', ['studentDelete' => $data]);
+    }
+
+    public function restore($id)
+    {
+        $restore = Student::withTrashed()->where('id', $id)->restore();
+        if ($restore) {
+            Session::flash('status', 'success');
+            Session::flash('message', 'restore student success!');
         }
         return redirect('/students');
     }
