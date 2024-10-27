@@ -4,12 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Student extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
-    protected $fillable = ['fullname', 'gender', 'nis', 'class_id'];
+    protected $fillable = [
+        'fullname',
+        'gender',
+        'nis',
+        'class_id'
+    ];
 
     // !!!jika nama table ini dalam bentuk plural, maka syntax dibawah ini tidak perlu dituliskan. !!!
     // protected $table = 'students';
