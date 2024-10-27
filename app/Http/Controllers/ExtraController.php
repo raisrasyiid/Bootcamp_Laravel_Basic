@@ -28,6 +28,11 @@ class ExtraController extends Controller
     public function store(Request $request)
     {
         $extra = new Extra;
+
+        $validated = $request->validate([
+            'name' => 'required|max:50',
+        ]);
+
         $extra->create($request->all());
         return redirect('/extra')->with('success', 'Extra added successfully');
     }

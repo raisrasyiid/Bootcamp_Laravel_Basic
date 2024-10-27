@@ -3,6 +3,15 @@
 
 @section('content')
 <div class="container-fluid">
+    @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <h1>Form tambah data class</h1>
        <div class="mt-5 col-6 m-auto">
         <form action="class" method="POST">
