@@ -4,9 +4,9 @@
 @section('content')
 <div class="container-fluid">
         <h1>Data Mahasiswa</h1>
-        @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
+        @if(Session::has('status'))
+        <div class="alert alert-success" role="alert">
+            {{ Session::get('message') }}
         </div>
         @endif
         <div class="my-3">
@@ -32,7 +32,7 @@
                         <td class="text-center">
                             <a href="/student/{{$data->id}}" class="btn btn-primary btn-sm">Detail</a>
                             <a href="/student_edit/{{$data->id}}" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="/student_delete/{{$data->id}}" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
                     @endforeach

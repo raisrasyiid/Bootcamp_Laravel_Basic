@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ClassRoom;
 use App\Models\Student;
+use App\Models\ClassRoom;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class StudentController extends Controller
 {
@@ -33,6 +34,13 @@ class StudentController extends Controller
     {
         $student = new Student;
 
+        $validated = $request->validate([
+            'name' => 'required|max:50',
+            'nis' => 'required|unique:students|max:8',
+            'gender' => 'required|',
+            'class_id' => 'required|',
+        ]);
+
         $student->create($request->all());
         return redirect('/students')->with('success', 'Student added successfully');
     }
@@ -48,6 +56,24 @@ class StudentController extends Controller
     {
         $student = Student::findOrFail($id);
         $student->update($request->all());
-        return redirect('/students')->with('success', 'Student update successfully');;
+        return redirect('/students')->with('success', 'Student update successfully');
+    }
+
+    public function delete($id)
+    {
+        $student = Student::findOrFail($id);
+        return view('students.students_delete', ['student' => $student]);
+    }
+
+    public function destroy($id)
+    {
+        $student = Student::findOrFail($id);
+        $student->delete();
+
+        if ($student) {
+            Session::flash('status', 'success');
+            Session::flash('message', 'delete student success!');
+        }
+        return redirect('/students');
     }
 }
