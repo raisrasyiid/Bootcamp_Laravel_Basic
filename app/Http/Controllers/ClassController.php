@@ -30,6 +30,12 @@ class ClassController extends Controller
     public function store(Request $request)
     {
         $class = new ClassRoom;
+
+        $validated = $request->validate([
+            'name' => 'required|max:50',
+            'teacher_id' => 'required|',
+        ]);
+
         $class->create($request->all());
         return redirect('/class')->with('success', 'Class added successfully');
     }

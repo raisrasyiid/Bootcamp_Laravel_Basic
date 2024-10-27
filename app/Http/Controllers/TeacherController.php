@@ -29,6 +29,11 @@ class TeacherController extends Controller
     public function store(Request $request)
     {
         $teacher = new Teacher;
+
+        $validated = $request->validate([
+            'name' => 'required|max:50',
+        ]);
+
         $teacher->create($request->all());
         return redirect('/teacher')->with('success', 'Teacher added successfully');
     }
