@@ -13,7 +13,8 @@ class StudentController extends Controller
     public function index()
     {
         //eager loading
-        $data = Student::get();
+        // $data = Student::simplePaginate(20);
+        $data = Student::paginate(20);
         return view('students.students', ['students' => $data]);
     }
 
