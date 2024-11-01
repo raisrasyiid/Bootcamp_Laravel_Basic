@@ -13,6 +13,14 @@
             <a href="/student_add" class="btn btn-primary btn-sm">Add Data</a>
             <a href="/students_deleted" class="btn btn-info btn-sm">Show deleted data</a>
         </div>
+        <div class="my-3 col-12 col-sm-8 col-md-6">
+            <form action="" method="GET">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="keyword" placeholder="Entry keyword here...">
+                    <button class="input-group-text btn btn-primary">Search</button>
+                </div>
+            </form>
+        </div>
         <table class="table table-bordered">
             <thead class="text-center">
                 <tr>
@@ -39,7 +47,7 @@
                     @endforeach
             </tbody>
         </table>
-        <div class="my-5 d-flex justify-content-center">
+        <div class="my-5">
             {{ $students->links() }}
         </div>
     </div>
