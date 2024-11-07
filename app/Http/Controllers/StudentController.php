@@ -14,10 +14,14 @@ class StudentController extends Controller
     {
         $keyword = $request->keyword;
         // $data = Student::simplePaginate(20);
-        $data = Student::where('fullname', 'LIKE', '%' . $keyword . '%')
+        $data = Student::with('class')
+            ->where('fullname', 'LIKE', '%' . $keyword . '%')
             ->orWhere('gender', $keyword)
             ->orWhere('nis', 'LIKE', '%' . $keyword . '%')
-            ->paginate(20);
+            ->orWhereHas('class', function ($query) use ($keyword) {
+                $query->where('name', 'LIKE', '%' . $keyword . '%');
+            })
+            ->paginate(15);
         return view('students.students', ['students' => $data]);
     }
 
