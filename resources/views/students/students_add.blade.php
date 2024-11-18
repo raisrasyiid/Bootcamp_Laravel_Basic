@@ -14,7 +14,7 @@
                 </ul>
             </div>
         @endif
-        <form action="student" method="POST">
+        <form action="student" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="control-group mb-3">
                 <label for="name">name</label>
@@ -40,6 +40,10 @@
                         <option value="{{$item->id}}">{{$item->name}}</option>
                     @endforeach
                 </select>
+            </div>
+            <div class="control-group mb-3">
+                <label for="gambar">gambar</label>
+                <input type="file" name="gambar" class="form-control" id="gambar">
             </div>
             <div class="control-group mb-3">
                 <button type="submit" class="btn btn-success">Simpan</button>
