@@ -14,7 +14,8 @@ class Student extends Model
         'fullname',
         'gender',
         'nis',
-        'class_id'
+        'class_id',
+        'image'
     ];
 
     // !!!jika nama table ini dalam bentuk plural, maka syntax dibawah ini tidak perlu dituliskan. !!!
