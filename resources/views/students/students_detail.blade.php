@@ -4,6 +4,15 @@
 @section('content')
 <div class="container-fluid">
         <h1>Data Mahasiswa {{$student->fullname}}</h1>
+
+        <div class="my-3 d-flex justify-content-center">
+            @if ($student->image !=null)
+            <img src="{{asset('storage/photo/students/'. $student->image)}}" alt="" width="100" height="100">
+            @else
+            <img src="{{asset('storage/default_image/profile.jpeg')}}" alt="" width="100" height="100">
+            @endif          
+        </div>
+
         <table class="table table-bordered mt-5">
             <thead class="text-center">
                 <tr>

@@ -7,6 +7,8 @@ use App\Models\ClassRoom;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StudentCreateRequest;
 
 class StudentController extends Controller
 {
@@ -14,10 +16,14 @@ class StudentController extends Controller
     {
         $keyword = $request->keyword;
         // $data = Student::simplePaginate(20);
-        $data = Student::where('fullname', 'LIKE', '%' . $keyword . '%')
+        $data = Student::with('class')
+            ->where('fullname', 'LIKE', '%' . $keyword . '%')
             ->orWhere('gender', $keyword)
             ->orWhere('nis', 'LIKE', '%' . $keyword . '%')
-            ->paginate(20);
+            ->orWhereHas('class', function ($query) use ($keyword) {
+                $query->where('name', 'LIKE', '%' . $keyword . '%');
+            })
+            ->paginate(15);
         return view('students.students', ['students' => $data]);
     }
 
@@ -34,19 +40,24 @@ class StudentController extends Controller
         return view('students.students_add', ['class' => $class]);
     }
 
-    public function store(Request $request)
+    public function store(StudentCreateRequest $request)
     {
-        $student = new Student;
+        $newname = '';
 
-        $validated = $request->validate([
-            'name' => 'required|max:50',
-            'nis' => 'required|unique:students|max:8',
-            'gender' => 'required|',
-            'class_id' => 'required|',
-        ]);
+        if ($request->file('gambar')) {
+            $extension = $request->file('gambar')->getClientOriginalExtension();
+            $newName = $request->fullname . '-' . now()->timestamp . '.' . $extension;
+            $request->file('gambar')->storeAs('photo/students', $newName);
+        }
 
-        $student->create($request->all());
-        return redirect('/students')->with('success', 'Student added successfully');
+        $request['image'] = $newName;
+        $student = Student::create($request->all());
+
+        if ($student) {
+            Session::flash('status', 'success');
+            Session::flash('message', 'add new students successfully');
+        }
+        return redirect('/students');
     }
 
     public function edit(Request $request, $id)
@@ -59,8 +70,39 @@ class StudentController extends Controller
     public function update(Request $request, $id)
     {
         $student = Student::findOrFail($id);
-        $student->update($request->all());
-        return redirect('/students')->with('success', 'Student update successfully');
+
+        $request->validate([
+            'gambar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
+
+        $newname = $student->image; //menggunakan file lama jika gambar tidak di update
+
+        if ($request->file('gambar')) {
+            //hapus file lama jika ada
+            if ($student->image && Storage::exists('photo/students/' . $student->image)) {
+                Storage::delete(['photo/students/' . $student->image]);
+            };
+
+            //simpan gambar baru
+            $extension = $request->file('gambar')->getClientOriginalExtension(); // gunakan extension dari file yang diupload (png, jpg. jpeg)
+            $newname = $request->fullname . '-' . now()->timestamp . '.' . $extension; // nama-waktu.jpg
+            $request->file('gambar')->storeAs('photo/students', $newname); // masukan data ke folder
+        }
+
+        $student->update([
+            'fullname' => $request->fullname,
+            'gender' => $request->gender,
+            'nis' => $request->nis,
+            'class_id' => $request->class_id,
+            'image' => $newname, // Gambar baru atau lama
+        ]);
+
+        if ($student) {
+            Session::flash('status', 'success');
+            Session::flash('message', 'edit students successfully');
+        }
+
+        return redirect('/students');
     }
 
     public function delete($id)

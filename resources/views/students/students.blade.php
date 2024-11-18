@@ -28,6 +28,7 @@
                     <th>NIM</th>
                     <th>Namaku</th>
                     <th>Jenis Kelamin</th>
+                    <th>Kelas</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -38,6 +39,7 @@
                         <td>{{$data->nis}}</td>
                         <td>{{$data->fullname}}</td>
                         <td>{{$data->gender}}</td>
+                        <td>{{$data->class->name}}</td>
                         <td class="text-center">
                             <a href="/student/{{$data->id}}" class="btn btn-primary btn-sm">Detail</a>
                             <a href="/student_edit/{{$data->id}}" class="btn btn-warning btn-sm">Edit</a>
@@ -48,7 +50,7 @@
             </tbody>
         </table>
         <div class="my-5">
-            {{ $students->links() }}
+            {{ $students->withQueryString()->links()  }}
         </div>
     </div>
 

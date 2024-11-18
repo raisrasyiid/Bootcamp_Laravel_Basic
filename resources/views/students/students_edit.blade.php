@@ -10,7 +10,7 @@
         </div>
         @endif
        <div class="mt-5 col-6 m-auto">
-        <form action="/student/{{$student->id}}" method="POST">
+        <form action="/student/{{$student->id}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="control-group mb-3">
@@ -37,9 +37,13 @@
                 <select name="class_id" id="class" class="form-control" required>
                     <option value="{{$student->class->id}}">{{$student->class->name}}</option>
                     @foreach ($class as $item)
-                        <option value="{{$item->id}}">{{$item->name}}</option>
+                    <option value="{{$item->id}}">{{$item->name}}</option>
                     @endforeach
                 </select>
+            </div>
+            <div class="control-group mb-3">
+                <label for="gambar">gambar</label>
+                <input type="file" name="gambar" value="{{$student->image}}" class="form-control" id="gambar" required>
             </div>
             <div class="control-group mb-3">
                 <button type="submit" class="btn btn-success">Update</button>
