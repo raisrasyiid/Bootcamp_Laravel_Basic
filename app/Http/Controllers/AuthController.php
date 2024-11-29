@@ -28,7 +28,7 @@ class AuthController extends Controller
         }
 
         Session::flash('status', 'failed');
-        Session::flash('message', 'login failed');
+        Session::flash('message', 'login failed, maybe email or password is incorrect');
 
         return redirect('/login');
     }
