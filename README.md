@@ -9,17 +9,17 @@
 
 ## How To Run This Project? 🗂⬇⬇⬇🔽🔽🔽
 
-npm instal
-php artisan migrate // php artisan migrate::fresh
-npm run dev
-php artisan serve
+npm instal <br>
+php artisan migrate // php artisan migrate::fresh<br>
+npm run dev<br>
+php artisan serve<br>
 
 ## Database 
-To running migration table : php artisan migrate:fresh
-To insert data from db : php artisan migrate:fresh --seed
+To running migration table : php artisan migrate:fresh<br>
+To insert data from db : php artisan migrate:fresh --seed<br>
 
 ## How to create db? 
-php artisan make:migration add_class_id_colum_to_students_table 
+php artisan make:migration add_class_id_colum_to_students_table<br>
 
 ## About Laravel
 
