@@ -25,20 +25,20 @@ Route::get('/', function () {
 //login
 Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest'); //cek middleware di kernel
 Route::post('/login', [AuthController::class, 'authenticate'])->middleware('guest');
-Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');
+Route::get('/logout', [AuthController::class, 'logout'])->middleware(['auth']);
 
 
 //students
 Route::get('/students', [StudentController::class, 'index'])->middleware('auth');
-Route::get('/student/{id}', [StudentController::class, 'show'])->middleware('auth');
-Route::get('/student_add', [StudentController::class, 'create'])->middleware('auth');
-Route::post('/student', [StudentController::class, 'store'])->middleware('auth');
-Route::get('/student_edit/{id}', [StudentController::class, 'edit'])->middleware('auth');
-Route::put('/student/{id}', [StudentController::class, 'update'])->middleware('auth');
-Route::get('/student_delete/{id}', [StudentController::class, 'delete'])->middleware('auth');
-Route::delete('/student_destroy/{id}', [StudentController::class, 'destroy'])->middleware('auth');
-Route::get('/students_deleted', [StudentController::class, 'deletedStudent'])->middleware('auth');
-Route::get('/students/{id}/restore', [StudentController::class, 'restore'])->middleware('auth');
+Route::get('/student/{id}', [StudentController::class, 'show'])->middleware(['auth', 'just-admin-or-teacher']);
+Route::get('/student_add', [StudentController::class, 'create'])->middleware(['auth', 'just-admin-or-teacher']);
+Route::post('/student', [StudentController::class, 'store'])->middleware(['auth', 'just-admin-or-teacher']);
+Route::get('/student_edit/{id}', [StudentController::class, 'edit'])->middleware(['auth', 'just-admin-or-teacher']);
+Route::put('/student/{id}', [StudentController::class, 'update'])->middleware(['auth', 'just-admin-or-teacher']);
+Route::get('/student_delete/{id}', [StudentController::class, 'delete'])->middleware(['auth', 'just-admin']);
+Route::delete('/student_destroy/{id}', [StudentController::class, 'destroy'])->middleware(['auth', 'just-admin']);
+Route::get('/students_deleted', [StudentController::class, 'deletedStudent'])->middleware(['auth', 'just-admin']);
+Route::get('/students/{id}/restore', [StudentController::class, 'restore'])->middleware(['auth', 'just-admin']);
 
 //Class
 Route::get('/class', [ClassController::class, 'index'])->middleware('auth');
