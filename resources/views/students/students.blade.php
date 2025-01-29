@@ -41,7 +41,11 @@
                         <td>{{$data->gender}}</td>
                         <td>{{$data->class->name}}</td>
                         <td class="text-center">
+                            @if (Auth::user()->role_id != 1 && Auth::user()->role_id != 2)
+                            -
+                            @else
                             <a href="/student/{{$data->id}}" class="btn btn-primary btn-sm">Detail</a>
+                            @endif
                             <a href="/student_edit/{{$data->id}}" class="btn btn-warning btn-sm">Edit</a>
                             <a href="/student_delete/{{$data->id}}" class="btn btn-danger btn-sm">Delete</a>
                         </td>
