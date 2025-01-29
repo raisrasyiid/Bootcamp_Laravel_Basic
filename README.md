@@ -7,6 +7,20 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## How To Run This Project? 🗂⬇⬇⬇🔽🔽🔽
+
+npm instal <br>
+php artisan migrate // php artisan migrate::fresh<br>
+npm run dev<br>
+php artisan serve<br>
+
+## Database 
+To running migration table : php artisan migrate:fresh<br>
+To insert data from db : php artisan migrate:fresh --seed<br>
+
+## How to create db? 
+php artisan make:migration add_class_id_colum_to_students_table<br>
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
